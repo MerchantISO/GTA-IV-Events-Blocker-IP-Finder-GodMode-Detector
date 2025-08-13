@@ -1,0 +1,31 @@
+:BLES version
+int get_ped_address(int ped)
+{
+int v2;
+unsigned int v4 = *(unsigned int*)0x306265A0;
+unsigned int v5 = *(unsigned int*)0x306265A4;
+unsigned int v6 = *(unsigned int*)0x306265AC;
+v2 = 0;
+if (*(unsigned char*)((ped >> 8) + v5) == (unsigned char)ped)
+v2 = (ped >> 8) * v6 + v4;
+return v2;
+}
+
+:BLUS version
+int get_ped_address(int ped)
+{
+int v2;
+unsigned int v4 = *(unsigned int*)0x306263D0;
+unsigned int v5 = *(unsigned int*)0x306263D4;
+unsigned int v6 = *(unsigned int*)0x306263DC;
+v2 = 0;
+if (*(unsigned char*)((ped >> 8) + v5) == (unsigned char)ped)
+v2 = (ped >> 8) * v6 + v4;
+return v2;
+}
+
+//Godmode checker
+int pedStruct = get_ped_address(ped); //Get Ped Address
+if (*(unsigned char*)(pedStruct + 0x115) == 0x20) {
+//your code after godmode detected on selected ped (player)
+}
